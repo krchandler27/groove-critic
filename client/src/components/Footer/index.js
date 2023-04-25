@@ -9,23 +9,24 @@ const Footer = () => {
       <div className="container text-center mb-5">
         {location.pathname !== '/' && (
           <button
-            className="btn btn-dark mb-3"
+            className="btn btn-dark mb-5 p-3"
+            style={{fontSize:25}}
             onClick={() => navigate(-1)}
           >
-            &larr; Go Back
+            🔙
           </button>
         )}
-        <h4>
-          Made with{' '}
+        <h4 className='pt-5'>
+          {' '}
           <span
             className="emoji"
             role="img"
-            aria-label="heart"
+            aria-label="music"
             aria-hidden="false"
           >
-            ❤️
+            🎵
           </span>{' '}
-          by the Tech Thoughts team.
+          Music Soothes the Savage Beast 👹.
         </h4>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -24,32 +24,75 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const ADD_COMMENT = gql`
+  mutation addComment($albumId: ID!, $commentText: String!) {
+    addComment(albumId: $albumId, commentText: $commentText) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      title
+      artist
+      image
+      genre
+      release
       comments {
         _id
         commentText
+        createdAt
       }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+export const REMOVE_COMMENT = gql`
+  mutation removeComment($albumId: ID!, $commentText: String!) {
+    removeComment(albumId: $albumId, commentText: $commentText) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      title
+      artist
+      image
+      genre
+      release
       comments {
         _id
         commentText
         createdAt
+      }
+    }
+  }
+`;
+
+export const SAVE_ALBUM = gql`
+  mutation saveAlbum($input: AlbumInput) {
+    saveAlbum(input: $input) {
+      _id
+      username
+      email
+      albumCount
+      savedAlbums {
+        _id
+        title
+        artist
+        image
+        genre
+        release
+      }
+    }
+  }
+`;
+
+export const REMOVE_ALBUM = gql`
+  mutation removeAlbum($albumId: ID!) {
+    removeAlbum(albumId: $albumId) {
+      _id
+      username
+      email
+      albumCount
+      savedAlbums {
+        _id
+        title
+        artist
+        image
+        genre
+        release
       }
     }
   }

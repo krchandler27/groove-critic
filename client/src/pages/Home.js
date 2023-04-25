@@ -1,32 +1,24 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import { useQuery } from "@apollo/client";
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+import AlbumList from "../components/AlbumList";
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_ALBUMS } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(QUERY_ALBUMS);
+  const albums = data?.albums || [];
+
+  console.log(albums);
 
   return (
     <main>
       <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="col-12 col-md-8 mb-3 text-center">
           {loading ? (
-            <div>Loading...</div>
+            <div>🔃 Loading 🔃</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
+            <AlbumList albums={albums} title="🎶 Let there be MUSIC! 🎶" />
           )}
         </div>
       </div>
