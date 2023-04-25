@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_COMMENT } from "../../utils/mutations";
 
+
 import Auth from "../../utils/auth";
 
 import RatingSystem from "../../utils/ratingSystem";
@@ -93,6 +94,7 @@ const CommentForm = ({ albumId }) => {
         </p>
       )}
     </div>
+    
   );
 };
 

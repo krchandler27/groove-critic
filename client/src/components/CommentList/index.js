@@ -30,6 +30,9 @@ const CommentList = ({ comments = [] }) => {
                   <button className="btn btn-sm btn-danger">
                     🔥 Remove Comment
                   </button>
+                  <button className="btn btn-sm btn-primary">
+                    🔥 Edit Comment
+                  </button>
                 </div>
               </div>
             </div>
@@ -38,5 +41,6 @@ const CommentList = ({ comments = [] }) => {
     </>
   );
 };
+
 
 export default CommentList;

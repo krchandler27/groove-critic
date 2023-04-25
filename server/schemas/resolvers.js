@@ -105,6 +105,23 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    updateComment: async (parent, { albumId, commentId, commentText }, context) => {
+      if (context.user) {
+        return Album.findOneAndUpdate(
+          { _id: albumId, "comments._id": commentId },
+          {
+            $set: {
+              "comments.$.commentText": commentText,
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    }
   },
 };
 
