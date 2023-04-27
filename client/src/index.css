@@ -12,6 +12,22 @@ html {
   /* 2 */
 }
 
+.zoom {
+  width:auto;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.zoom img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.zoom:hover img {
+  transform: scale(1.15);
+}
+
 /* Sections
    ========================================================================== */
 /**
