@@ -13,7 +13,7 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">🎸🎹🥁  Whats Your Tunage 🎻🎷🎺</h1>
+            <h1 className="m-0">🎸🎹🥁  Groove Critic 🎻🎷🎺</h1>
           </Link>
           <p className="m-0 text-center">Enjoy the music.</p>
         </div>

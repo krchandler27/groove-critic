@@ -18,7 +18,7 @@ const Home = () => {
           {loading ? (
             <div>🔃 Loading 🔃</div>
           ) : (
-            <AlbumList albums={albums} title="🎶 Let there be MUSIC! 🎶" />
+            <AlbumList albums={albums} title="🎶 The Joy of MUSIC! 🎶" />
           )}
         </div>
       </div>
