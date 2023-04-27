@@ -22,7 +22,7 @@ const RatingSystem = () => {
             <FaMusic
               className="musicNote"
               size={50}
-              color={ratingValue <= (hover || rating) ? "810CA8" : "ECF2FF"}
+              color={ratingValue <= (hover || rating) ? "6a6209" : "999671"}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
             />

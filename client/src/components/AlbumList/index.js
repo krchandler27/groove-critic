@@ -14,19 +14,19 @@ const AlbumList = ({ albums, title }) => {
         {albums &&
           albums.map((album) => (
             <div key={album._id} className="col-12 col-xl-6 text-center">
-              <div className="card mb-2" style={{height: "95%"}}>
+              <div className="card mb-2" style={{height: "95%", borderRadius: "5%"}}>
                 {album.image ? (
                   <Link to={`/albums/${album._id}`}>
                   <img
                     src={require(`../../images/${album.image}`)}
                     alt={`${album.image}`}
                     className="p-3"
-                    style={{ width: "60%", height: "auto" }}
+                    style={{ width: "60%", height: "auto", borderRadius: "15%"}}
                   />
                   </Link>
                 ) : null}
                 <br></br>
-                <h2 className="card-header bg-dark text-light p-2 m-0">
+                <h2 className="card-header text-light p-2 m-0">
                   {album.title} <br />
                 </h2>
                 <h3>{album.artist}</h3>

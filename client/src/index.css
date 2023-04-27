@@ -361,6 +361,7 @@ body {
     'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
+  background-color: #FFF8D6;
 }
 
 h1,
@@ -423,13 +424,13 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  color: rgb(239, 188, 0);
   text-decoration: none;
 }
 
 a:hover {
-  color: #065b83;
-  text-decoration: underline;
+  color: rgb(233, 214, 144);
+  text-decoration: none;
 }
 
 /* HEIGHT / WIDTH UTILS */
@@ -883,7 +884,7 @@ a:hover {
 }
 
 .text-primary {
-  color: #2d3e50 !important;
+  color: #000000 !important;
 }
 
 .text-info {
@@ -891,7 +892,7 @@ a:hover {
 }
 
 .text-danger {
-  color: #e64c66 !important;
+  color: #721121 !important;
 }
 
 .text-default {
@@ -899,11 +900,11 @@ a:hover {
 }
 
 .text-light {
-  color: #d9e9e8 !important;
+  color: #fff8d6 !important;
 }
 
 .text-dark {
-  color: #1a1a1a !important;
+  color: #0e4958 !important;
 }
 
 .text-white {
@@ -915,28 +916,28 @@ a:hover {
 }
 
 .text-link {
-  color: #1b89bc !important;
+  color: #0e4958 !important;
 }
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #2d3e50 !important;
+  background-color: #6a6209 !important;
 }
 
 .bg-info {
-  background-color: #1bbc9b !important;
+  background-color: #EFBC00 !important;
 }
 
 .bg-danger {
-  background-color: #e64c66 !important;
+  background-color: #721121 !important;
 }
 
 .bg-light {
-  background-color: #d9e9e8 !important;
+  background-color: #fff8d6 !important;
 }
 
 .bg-dark {
-  background-color: #1a1a1a !important;
+  background-color: #0e4958 !important;
 }
 
 .bg-white {
@@ -1012,7 +1013,7 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #0e4958;
   color: #d9e9e8;
 }
 
@@ -1021,30 +1022,31 @@ a:hover {
 }
 
 .btn.btn-danger {
-  background-color: #e64c66;
+  background-color: #721121;
   color: #ffffff;
 }
 
 .btn.btn-danger:hover {
-  background-color: #ee8294;
+  background-color: #ac6100;
 }
 
 .btn.btn-info {
-  background-color: #1bbc9b;
-  color: #ffffff;
+  background-color: #494407;
+  color: #fff8d6;
 }
 
 .btn.btn-info:hover {
-  background-color: #31e1bd;
+  background-color: #746e31;
 }
 
 .btn.btn-light {
-  background-color: #d9e9e8;
-  color: #1a1a1a;
+  background-color: #fff8d6;
+  color: #494407;
 }
 
 .btn.btn-light:hover {
-  background-color: #84b8b4;
+  background-color: #b1aa5c;
+  cursor: pointer;
 }
 
 .btn.btn-dark {
@@ -1090,7 +1092,7 @@ a:hover {
 
 .card .card-header {
   padding: 0.375rem;
-  background-color: #2d3e50;
+  background-color: #6a6209;
   color: #d9e9e8;
 }
 
