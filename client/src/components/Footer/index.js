@@ -28,6 +28,7 @@ const Footer = () => {
           </span>{' '}
           Music Soothes the Savage Beast 👹.
         </h4>
+        <a href="#" className=''>Scroll Up</a>
       </div>
     </footer>
   );
