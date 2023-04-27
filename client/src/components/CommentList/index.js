@@ -1,10 +1,14 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 import { REMOVE_COMMENT, UPDATE_COMMENT } from "../../utils/mutations";
 import { QUERY_SINGLE_ALBUM } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
+
+
+// Using the REMOVE_COMMENT mutation to delete an album review and then update the album's reviews list
 const CommentList = ({ comments, singleAlbum }) => {
   const [removeComment, { error }] = useMutation(REMOVE_COMMENT, {
     onCompleted: (data) => console.log("🧌🧌🧌 Mutation data", data),
@@ -30,13 +34,6 @@ const CommentList = ({ comments, singleAlbum }) => {
     }
   };
 
-
-
-
-
-
-
-
   const [updateComment, { err }] = useMutation(UPDATE_COMMENT, {
     onCompleted: (data) => console.log("👺👺👺 Mutation data", data),
     update(cache, { data: { updateComment } }) {
@@ -51,22 +48,19 @@ const CommentList = ({ comments, singleAlbum }) => {
     },
   });
 
-const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
-  try {
-    const { data } = await updateComment({
-      variables: { commentId: commentId, albumId: singleAlbumId, newCommentText: commentText },
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-
-
-
-
-
-  
+  const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
+    try {
+      const { data } = await updateComment({
+        variables: {
+          commentId: commentId,
+          albumId: singleAlbumId,
+          commentText: commentText,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   if (!comments.length) {
     return <h3 style={{ color: "orange" }}>No Comments Yet</h3>;
@@ -97,7 +91,26 @@ const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
                 </h5>
                 <br />
                 <div className="text-right">
-                  {Auth.loggedIn() && (
+                {Auth.loggedIn() && (
+                  <div className="text-right">
+                    <Link
+                      comment={comment}
+                      singleAlbumId={singleAlbum._id}
+                      commentText={comment.commentText}
+                      to={`/albums/${singleAlbum._id}/comments/${comment._id}`}
+                    >
+                      <button
+                        className="btn btn-sm btn-primary"
+                        style={{ cursor: "pointer" }}
+                      >
+                        🖊️ Edit Comment
+                      </button>
+                    </Link>
+                  </div>
+                )}
+
+                {Auth.loggedIn() && (
+                  <div className="text-right">
                     <button
                       className="btn btn-sm btn-danger"
                       onClick={() =>
@@ -105,20 +118,10 @@ const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
                       }
                       style={{ cursor: "pointer" }}
                     >
-                      🔥 Remove Comment
+                      🔥 Remove Review
                     </button>
-                  )}
-                  {Auth.loggedIn() && (
-                    <button
-                      className="btn btn-sm btn-primary"
-                      onClick={() =>
-                        handleUpdateComment(comment._id, singleAlbum._id, comment.commentText)
-                      }
-                      style={{ cursor: "pointer" }}
-                    >
-                      🖊️ Edit Comment
-                    </button>
-                  )}
+                  </div>
+                )}
                 </div>
               </div>
             </div>
