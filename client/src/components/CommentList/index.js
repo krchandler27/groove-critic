@@ -39,11 +39,11 @@ const CommentList = ({ comments, singleAlbum }) => {
 
   const [updateComment, { err }] = useMutation(UPDATE_COMMENT, {
     onCompleted: (data) => console.log("👺👺👺 Mutation data", data),
-    update(cache, { data: { editComment } }) {
+    update(cache, { data: { updateComment } }) {
       try {
         cache.writeQuery({
           query: QUERY_SINGLE_ALBUM,
-          data: { album: editComment },
+          data: { album: updateComment },
         });
       } catch (err) {
         console.log(err);
@@ -54,7 +54,7 @@ const CommentList = ({ comments, singleAlbum }) => {
 const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
   try {
     const { data } = await updateComment({
-      variables: { commentId: commentId, albumId: singleAlbumId, commentText: commentText },
+      variables: { commentId: commentId, albumId: singleAlbumId, newCommentText: commentText },
     });
   } catch (err) {
     console.log(err);
