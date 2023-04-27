@@ -82,7 +82,7 @@ const SingleAlbum = () => {
               style={{ width: "60%", height: "auto" }}
             />
           </div>
-          <h3 className="card-header bg-dark text-light p-2 m-0">
+          <h3 className="card-header bg-primary text-light p-2 m-0">
             {album.title} <br />
           </h3>
           <div className="bg-light py-4">
@@ -97,9 +97,9 @@ const SingleAlbum = () => {
               disabled={savedAlbumIds?.some(
                 (savedAlbumId) => savedAlbumId === album._id
               )}
-              className="btn-block btn-info p-2"
+              className="btn btn-info p-2"
               onClick={() => handleSaveAlbum(album._id)}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", borderRadius: "" }}
             >
               {savedAlbumIds?.some((savedAlbumId) => savedAlbumId === album._id)
                 ? "Already been saved! ✅"

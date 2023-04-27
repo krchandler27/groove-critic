@@ -36,11 +36,11 @@ const CommentList = ({ comments, singleAlbum }) => {
 
   const [updateComment, { err }] = useMutation(UPDATE_COMMENT, {
     onCompleted: (data) => console.log("👺👺👺 Mutation data", data),
-    update(cache, { data: { editComment } }) {
+    update(cache, { data: { updateComment } }) {
       try {
         cache.writeQuery({
           query: QUERY_SINGLE_ALBUM,
-          data: { album: editComment },
+          data: { album: updateComment },
         });
       } catch (err) {
         console.log(err);
