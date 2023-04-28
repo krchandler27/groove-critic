@@ -78,8 +78,8 @@ const CommentList = ({ comments, singleAlbum }) => {
         {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
-                <p className="card-body" style={{ fontSize: "2rem" }}>
+              <div className="p-3 card bg-primary text-light" style={{borderRadius: "15px"}}>
+                <p className="card-body" style={{ fontSize: "2rem"}}>
                   {comment.commentText}
                 </p>
                 <h5 className="card-header">
@@ -101,9 +101,10 @@ const CommentList = ({ comments, singleAlbum }) => {
                     >
                       <button
                         className="btn btn-sm btn-primary"
-                        style={{ cursor: "pointer" }}
+                        
+                        style={{ cursor: "pointer", padding: ".5rem .85rem .5rem .85rem" }}
                       >
-                        🖊️ Edit Comment
+                       🖊️ 
                       </button>
                     </Link>
                   </div>
@@ -116,9 +117,9 @@ const CommentList = ({ comments, singleAlbum }) => {
                       onClick={() =>
                         handleRemoveComment(comment._id, singleAlbum._id)
                       }
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", marginTop:"1rem", padding: ".5rem 1rem .5rem 1rem"}}
                     >
-                      🔥 Remove Review
+                       🔥 
                     </button>
                   </div>
                 )}

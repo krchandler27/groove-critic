@@ -82,7 +82,7 @@ const SingleAlbum = () => {
               style={{ width: "60%", height: "auto" }}
             />
           </div>
-          <h3 className="card-header bg-primary text-light p-2 m-0">
+          <h3 className="card-header bg-primary text-light p-2 m-0" style={{borderRadius: "15px"}}>
             {album.title} <br />
           </h3>
           <div className="bg-light py-4">
