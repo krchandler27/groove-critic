@@ -16,28 +16,28 @@ const Footer = () => {
           <div class="row">
           <div class="col-sm-6 col-md-2 item">
               <ul>
-                <ul><a href="https://github.com/krchandler27">Katie Speakman</a></ul>
+                <ul><a href="https://github.com/krchandler27" target='_blank'>Katie Speakman</a></ul>
               </ul>
             </div>
 
             <div class="col-sm-6 col-md-2 item">
               <ul>
-                <ul><a href="https://github.com/elawilliam">Ela William</a></ul>
+                <ul><a href="https://github.com/elawilliam" target='_blank'>Ela William</a></ul>
               </ul>
             </div>
             <div class="col-sm-6 col-md-2 item">
               <ul>
-                <ul><a href="https://github.com/Chiweenie6">Kevin Breedlove</a></ul>
+                <ul><a href="https://github.com/Chiweenie6" target='_blank'>Kevin Breedlove</a></ul>
               </ul>
             </div>
             <div class="col-sm-6 col-md-2 item">
               <ul>
-                <ul><a href="https://github.com/NewCoderStudent39">Isaac McDaniel</a></ul>
+                <ul><a href="https://github.com/NewCoderStudent39" target='_blank'>Isaac McDaniel</a></ul>
               </ul>
             </div>
             <div class="col-sm-6 col-md-2 item">
               <ul>
-                <ul><a href="https://github.com/kthlnt">Katherine Lantto</a></ul>
+                <ul><a href="https://github.com/kthlnt" target='_blank'>Katherine Lantto</a></ul>
               </ul>
             </div>
           </div>
