@@ -57,7 +57,7 @@ const EditComment = ({ comment, singleAlbumId, commentText }) => {
       <div>
         <h3>{singleAlbumId}</h3>
         <div key={comment} className="col-12 mb-3 pb-3">
-            <h5>Hey</h5>
+            <h5>{comment}</h5>
           <p className="card-body" style={{ fontSize: "2rem" }}>
             {commentText}
           </p>
@@ -108,7 +108,7 @@ const EditComment = ({ comment, singleAlbumId, commentText }) => {
 
                   <div className="text-right">
                     <button
-                      className="btn btn-sm btn-primary"
+                      className="btn btn-md btn-info"
                       onClick={() =>
                         handleUpdateComment(
                           comment._id,
@@ -118,7 +118,7 @@ const EditComment = ({ comment, singleAlbumId, commentText }) => {
                       }
                       style={{ cursor: "pointer" }}
                     >
-                      🖊️ Save Change
+                      Save Change
                     </button>
                   </div>
                 </form>

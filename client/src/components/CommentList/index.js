@@ -1,7 +1,8 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-
+import {BsFillTrashFill} from 'react-icons/bs'
+import {GrEdit} from 'react-icons/gr'
 import { REMOVE_COMMENT, UPDATE_COMMENT } from "../../utils/mutations";
 import { QUERY_SINGLE_ALBUM } from "../../utils/queries";
 import Auth from "../../utils/auth";
@@ -78,8 +79,8 @@ const CommentList = ({ comments, singleAlbum }) => {
         {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
-                <p className="card-body" style={{ fontSize: "2rem" }}>
+              <div className="p-3 card bg-primary text-light" style={{borderRadius: "15px"}}>
+                <p className="card-body" style={{ fontSize: "2rem"}}>
                   {comment.commentText}
                 </p>
                 <h5 className="card-header">
@@ -99,27 +100,28 @@ const CommentList = ({ comments, singleAlbum }) => {
                       commentText={comment.commentText}
                       to={`/albums/${singleAlbum._id}/comments/${comment._id}`}
                     >
-                      <button
-                        className="btn btn-sm btn-primary"
-                        style={{ cursor: "pointer" }}
+                      <a
+                        className=""
+                        
+                        style={{ cursor: "pointer"}}
                       >
-                        🖊️ Edit Comment
-                      </button>
+                       <GrEdit/>
+                      </a>
                     </Link>
                   </div>
                 )}
 
                 {Auth.loggedIn() && (
                   <div className="text-right">
-                    <button
-                      className="btn btn-sm btn-danger"
+                    <a
+                      className=""
                       onClick={() =>
                         handleRemoveComment(comment._id, singleAlbum._id)
                       }
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer"}}
                     >
-                      🔥 Remove Review
-                    </button>
+                       <BsFillTrashFill/>
+                    </a>
                   </div>
                 )}
                 </div>
