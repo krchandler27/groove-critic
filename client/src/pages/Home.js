@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import AlbumList from "../components/AlbumList";
 
 import { QUERY_ALBUMS } from "../utils/queries";
-
+//🎶//
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ALBUMS);
   const albums = data?.albums || [];
@@ -14,11 +14,11 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-center">
-        <div className="col-12 col-md-8 mb-3 text-center">
+        <div className="col-12 col-md-8 mb-3 text-center" style={{paddingTop: "5rem"}}>
           {loading ? (
             <div>🔃 Loading 🔃</div>
           ) : (
-            <AlbumList albums={albums} title="🎶 The Joy of MUSIC! 🎶" />
+            <AlbumList albums={albums} title="Unleash your innermost musical thoughts." />
           )}
         </div>
       </div>

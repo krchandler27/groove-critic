@@ -9,8 +9,8 @@ const AlbumList = ({ albums, title }) => {
 
   return (
     <div>
-      <h3 className="text-primary">{title}</h3>
-      <div className="flex-row justify-space-between my-4">
+      <h2 className="text-primary text-md" style={{paddingBottom: "5rem" }}>{title}</h2>
+      <div className="flex-row justify-space-between my-4" style={{paddingBottom: "5rem"}}>
         {albums &&
           albums.map((album) => (
             <div key={album._id} className="col-12 col-xl-6 text-center">
