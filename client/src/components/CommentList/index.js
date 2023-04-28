@@ -1,7 +1,8 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-
+import {BsFillTrashFill} from 'react-icons/bs'
+import {GrEdit} from 'react-icons/gr'
 import { REMOVE_COMMENT, UPDATE_COMMENT } from "../../utils/mutations";
 import { QUERY_SINGLE_ALBUM } from "../../utils/queries";
 import Auth from "../../utils/auth";
@@ -99,28 +100,28 @@ const CommentList = ({ comments, singleAlbum }) => {
                       commentText={comment.commentText}
                       to={`/albums/${singleAlbum._id}/comments/${comment._id}`}
                     >
-                      <button
-                        className="btn btn-sm btn-primary"
+                      <a
+                        className=""
                         
-                        style={{ cursor: "pointer", padding: ".5rem .85rem .5rem .85rem" }}
+                        style={{ cursor: "pointer"}}
                       >
-                       🖊️ 
-                      </button>
+                       <GrEdit/>
+                      </a>
                     </Link>
                   </div>
                 )}
 
                 {Auth.loggedIn() && (
                   <div className="text-right">
-                    <button
-                      className="btn btn-sm btn-danger"
+                    <a
+                      className=""
                       onClick={() =>
                         handleRemoveComment(comment._id, singleAlbum._id)
                       }
-                      style={{ cursor: "pointer", marginTop:"1rem", padding: ".5rem 1rem .5rem 1rem"}}
+                      style={{ cursor: "pointer"}}
                     >
-                       🔥 
-                    </button>
+                       <BsFillTrashFill/>
+                    </a>
                   </div>
                 )}
                 </div>
