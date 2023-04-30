@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_COMMENT } from "../../utils/mutations";
 
-
 import Auth from "../../utils/auth";
 
 import RatingSystem from "../../utils/ratingSystem";
@@ -25,7 +24,7 @@ const CommentForm = ({ albumId }) => {
           albumId,
           commentText,
           commentAuthor: Auth.getProfile().data.username,
-          rating
+          rating,
         },
       });
 
@@ -68,11 +67,12 @@ const CommentForm = ({ albumId }) => {
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
+            key={albumId}
           >
             <div className="col-12 col-lg-9">
               <textarea
                 name="commentText"
-                placeholder="Your thoughts..."
+                placeholder="Your review..."
                 value={commentText}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -82,19 +82,18 @@ const CommentForm = ({ albumId }) => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-info btn-block py-3" type="submit">
-                ✏️ Post Review
+                ✏️ Add Thought
               </button>
             </div>
           </form>
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{" "}
+          Must be logged in to write a review. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>
-    
   );
 };
 
