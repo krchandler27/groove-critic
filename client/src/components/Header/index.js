@@ -9,13 +9,12 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    <header className="mb-4 py-3 flex-row align-center headerContainer">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+        <div className='headerTitle'>
           <Link className="text-light" to="/">
             <h1 className="m-0" style={{fontFamily: "Mystery Quest"}}>Groove Critic</h1>
           </Link>
-          <p className="m-0 text-center"></p>
         </div>
         <div>
           {Auth.loggedIn() ? (

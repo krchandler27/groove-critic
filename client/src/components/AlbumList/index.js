@@ -14,7 +14,7 @@ const AlbumList = ({ albums, title }) => {
         {albums &&
           albums.map((album) => (
             <div key={album._id} className="col-12 col-xl-6 text-center">
-              <div className="card mb-2 zoom" style={{height: "95%", borderRadius: "5%"}}>
+              <div className="card mb-2 zoom" style={{height: "95%", borderRadius: "5%", backgroundColor: "#494407"}}>
                 {album.image ? (
                   <Link to={`/albums/${album._id}`}>
                   <img
@@ -25,16 +25,16 @@ const AlbumList = ({ albums, title }) => {
                   />
                   </Link>
                 ) : null}
-                <br></br>
-                <h2 className="card-header text-light p-2 m-0">
-                  {album.title} <br />
+                
+                <h2 className="text-light">
+                  {album.title} 
                 </h2>
                 <h3>{album.artist}</h3>
-                <br></br>
+                
                 <h5>{album.genre}</h5>
-                <br></br>
+                
                 <h5>{album.release}</h5>
-                <br></br>
+                
               </div>
               <br />
             </div>

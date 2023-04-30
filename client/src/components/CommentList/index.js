@@ -83,7 +83,7 @@ const CommentList = ({ comments, singleAlbum }) => {
                 <p className="card-body" style={{ fontSize: "2rem"}}>
                   {comment.commentText}
                 </p>
-                <h5 className="card-header">
+                <h5 className="card-header" style={{}}>
                   <span style={{ fontSize: "0.75rem" }}>By</span>{" "}
                   {comment.commentAuthor}{" "}
                   <span style={{ fontSize: "0.75rem" }}>
