@@ -9,7 +9,6 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import SingleAlbum from "./pages/SingleAlbum";
-import EditComment from "./pages/EditComment";
 
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
@@ -57,7 +56,6 @@ function App() {
               <Route path="/me" element={<Profile />} />
               <Route path="/profiles/:username" element={<Profile />} />
               <Route path="/albums/:albumId" element={<SingleAlbum />} />
-              <Route path="/albums/:albumId/comments/:commentId" element={<EditComment />} />
             </Routes>
           </div>
           <Footer />
