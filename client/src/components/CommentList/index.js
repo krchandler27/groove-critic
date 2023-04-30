@@ -1,18 +1,66 @@
-import React from "react";
-import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+
 import {BsFillTrashFill} from 'react-icons/bs'
 import {GrEdit} from 'react-icons/gr'
 import { REMOVE_COMMENT, UPDATE_COMMENT } from "../../utils/mutations";
 import { QUERY_SINGLE_ALBUM } from "../../utils/queries";
+
 import Auth from "../../utils/auth";
 
+import EditComment from "../EditComment";
 
+const CommentList = ({ comments = [], singleAlbum }) => {
+  const [toggle, setToggle] = useState(true);
+  const showEditComment = (id) => {
+    if (id) {
+      setToggle(!toggle);
+    }
+  };
 
-// Using the REMOVE_COMMENT mutation to delete an album review and then update the album's reviews list
-const CommentList = ({ comments, singleAlbum }) => {
+  //  const [...comment] = comments;
+
+  //  const [userComments, setUserComments] = useState([...comments]);
+
+  // console.log(userComments);
+
+  // Toggle hide/show EditComment
+  // const [toggle, setToggle] = useState(true);
+  // const showEditComment = (id) => {
+  //   const updateComment = comments.map(comment => {
+  //   if (id === comment._id) {
+  //   return setToggle(!toggle);
+  //   } else {
+  //     return comment;
+  //   }
+
+  // });
+  // setToggle(updateComment);
+  // console.log(id);
+  // }
+
+  console.log(comments);
+  console.log(singleAlbum);
+
+  // const [userComments, setUserComments] = useState([...comments]);
+
+  //   console.log(userComments);
+
+  // const handleComplete = (id) => {
+  //   const updatedComments = userComments.map(comment => {
+  //     if (comment._id === id) {
+  //       return {...comment, completed: true}
+  //     } else {
+  //       return comment;
+  //     }
+  //   });
+  //   setUserComments(updatedComments);
+  // }
+
+  // Using the REMOVE_COMMENT mutation to delete an album review and then update the album's reviews list
   const [removeComment, { error }] = useMutation(REMOVE_COMMENT, {
-    onCompleted: (data) => console.log("🧌🧌🧌 Mutation data", data),
+    onCompleted: (data) => console.log("🧌🧌🧌Mutation data", data),
     update(cache, { data: { removeComment } }) {
       try {
         cache.writeQuery({
@@ -67,6 +115,26 @@ const CommentList = ({ comments, singleAlbum }) => {
     return <h3 style={{ color: "orange" }}>No Comments Yet</h3>;
   }
 
+  function commentEdit({ id }) {
+    const commentEdit = comments.map((comment) => {
+      if (comment._id === id) {
+        return (
+          <EditComment
+            key={comment._id}
+            comment={comment}
+            singleAlbumId={singleAlbum._id}
+            commentId={comment._id}
+            commentText={comment.commentText}
+          />
+        );
+      } else {
+        return comment;
+      }
+    });
+  }
+
+  // const comment = comments.find(comment => comment._id === id);
+
   return (
     <>
       <h3
@@ -75,6 +143,7 @@ const CommentList = ({ comments, singleAlbum }) => {
       >
         Reviews
       </h3>
+
       <div className="flex-row my-4">
         {comments &&
           comments.map((comment) => (
@@ -91,29 +160,37 @@ const CommentList = ({ comments, singleAlbum }) => {
                   </span>
                 </h5>
                 <br />
-                <div className="text-right">
-                {Auth.loggedIn() && (
-                  <div className="text-right">
-                    <Link
-                      comment={comment}
-                      singleAlbumId={singleAlbum._id}
-                      commentText={comment.commentText}
-                      to={`/albums/${singleAlbum._id}/comments/${comment._id}`}
-                    >
-                      <a
-                        className=""
-                        
-                        style={{ cursor: "pointer"}}
-                      >
-                       <GrEdit/>
-                      </a>
-                    </Link>
-                  </div>
-                )}
 
-                {Auth.loggedIn() && (
-                  <div className="text-right">
-                    <a
+                {Auth.loggedIn() &&
+                  Auth.getProfile().data.username === comment.commentAuthor && (
+                    <div className="text-right">
+                      <a
+                        type="submit"
+                        className="btn btn-sm btn-primary text-right"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          showEditComment(comment._id);
+                        }}
+                      >
+                        <GrEdit/>
+                      </a>
+                      {toggle ? (
+                        <></>
+                      ) : (
+                        <EditComment
+                          key={comment._id}
+                          commentToChange={comment}
+                          singleAlbumId={singleAlbum._id}
+                          commentId={comment._id}
+                          commentText={comment.commentText}
+                        />
+                      )}
+                    </div>
+                  )}
+                {Auth.loggedIn() &&
+                  Auth.getProfile().data.username === comment.commentAuthor && (
+                    <div className="text-right">
+                      <a
                       className=""
                       onClick={() =>
                         handleRemoveComment(comment._id, singleAlbum._id)
@@ -122,9 +199,9 @@ const CommentList = ({ comments, singleAlbum }) => {
                     >
                        <BsFillTrashFill/>
                     </a>
-                  </div>
-                )}
-                </div>
+                    </div>
+                  )}
+
               </div>
             </div>
           ))}
