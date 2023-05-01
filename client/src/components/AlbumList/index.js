@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const AlbumList = ({ albums, title }) => {
   if (!albums.length) {
     return <h3>No Albums at the Moment</h3>;
   }
 
+
+
   return (
     <div>
-      <h2 className="text-primary text-md" style={{paddingBottom: "5rem" }}>{title}</h2>
+      <h2 className="text-primary text-md funky" style={{paddingBottom: "5rem" }}>{title}</h2>
       <div className="flex-row justify-space-between my-4" style={{paddingBottom: "5rem"}}>
         {albums &&
           albums.map((album) => (
