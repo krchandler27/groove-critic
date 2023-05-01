@@ -2,61 +2,25 @@ import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-import {BsFillTrashFill} from 'react-icons/bs'
-import {GrEdit} from 'react-icons/gr'
-import { REMOVE_COMMENT, UPDATE_COMMENT } from "../../utils/mutations";
-import { QUERY_SINGLE_ALBUM } from "../../utils/queries";
+import { BsFillTrashFill } from "react-icons/bs";
+import { GrEdit } from "react-icons/gr";
+import { REMOVE_COMMENT } from "../../utils/mutations";
+import { QUERY_SINGLE_ALBUM, QUERY_ME } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
 import EditComment from "../EditComment";
 
 const CommentList = ({ comments = [], singleAlbum }) => {
-  const [toggle, setToggle] = useState(true);
-  const showEditComment = (id) => {
-    if (id) {
-      setToggle(!toggle);
-    }
+  // New attempt to update
+  const [commentText, setCommentText] = useState("");
+
+  const handleUpdate = (updatedText) => {
+    setCommentText(updatedText);
   };
-
-  //  const [...comment] = comments;
-
-  //  const [userComments, setUserComments] = useState([...comments]);
-
-  // console.log(userComments);
-
-  // Toggle hide/show EditComment
-  // const [toggle, setToggle] = useState(true);
-  // const showEditComment = (id) => {
-  //   const updateComment = comments.map(comment => {
-  //   if (id === comment._id) {
-  //   return setToggle(!toggle);
-  //   } else {
-  //     return comment;
-  //   }
-
-  // });
-  // setToggle(updateComment);
-  // console.log(id);
-  // }
 
   console.log(comments);
   console.log(singleAlbum);
-
-  // const [userComments, setUserComments] = useState([...comments]);
-
-  //   console.log(userComments);
-
-  // const handleComplete = (id) => {
-  //   const updatedComments = userComments.map(comment => {
-  //     if (comment._id === id) {
-  //       return {...comment, completed: true}
-  //     } else {
-  //       return comment;
-  //     }
-  //   });
-  //   setUserComments(updatedComments);
-  // }
 
   // Using the REMOVE_COMMENT mutation to delete an album review and then update the album's reviews list
   const [removeComment, { error }] = useMutation(REMOVE_COMMENT, {
@@ -83,57 +47,9 @@ const CommentList = ({ comments = [], singleAlbum }) => {
     }
   };
 
-  const [updateComment, { err }] = useMutation(UPDATE_COMMENT, {
-    onCompleted: (data) => console.log("👺👺👺 Mutation data", data),
-    update(cache, { data: { updateComment } }) {
-      try {
-        cache.writeQuery({
-          query: QUERY_SINGLE_ALBUM,
-          data: { album: updateComment },
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    },
-  });
-
-  const handleUpdateComment = async (commentId, singleAlbumId, commentText) => {
-    try {
-      const { data } = await updateComment({
-        variables: {
-          commentId: commentId,
-          albumId: singleAlbumId,
-          commentText: commentText,
-        },
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   if (!comments.length) {
     return <h3 style={{ color: "orange" }}>No Comments Yet</h3>;
   }
-
-  function commentEdit({ id }) {
-    const commentEdit = comments.map((comment) => {
-      if (comment._id === id) {
-        return (
-          <EditComment
-            key={comment._id}
-            comment={comment}
-            singleAlbumId={singleAlbum._id}
-            commentId={comment._id}
-            commentText={comment.commentText}
-          />
-        );
-      } else {
-        return comment;
-      }
-    });
-  }
-
-  // const comment = comments.find(comment => comment._id === id);
 
   return (
     <>
@@ -149,7 +65,7 @@ const CommentList = ({ comments = [], singleAlbum }) => {
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
               <div className="p-3 card bg-primary text-light" style={{borderRadius: "15px"}}>
-                <p className="card-body" style={{ fontSize: "2rem"}}>
+                <p className="card-body" style={{ fontSize: "2rem" }}>
                   {comment.commentText}
                 </p>
                 <h5 className="card-header" style={{}}>
@@ -164,44 +80,31 @@ const CommentList = ({ comments = [], singleAlbum }) => {
                 {Auth.loggedIn() &&
                   Auth.getProfile().data.username === comment.commentAuthor && (
                     <div className="text-right">
-                      <a
-                        type="submit"
-                        className="btn btn-sm btn-primary text-right"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {
-                          showEditComment(comment._id);
-                        }}
-                      >
-                        <GrEdit/>
-                      </a>
-                      {toggle ? (
-                        <></>
-                      ) : (
-                        <EditComment
-                          key={comment._id}
-                          commentToChange={comment}
-                          singleAlbumId={singleAlbum._id}
-                          commentId={comment._id}
-                          commentText={comment.commentText}
-                        />
-                      )}
+                      <EditComment
+                        key={comment._id}
+                        // commentText={commentText}
+                        onUpdate={handleUpdate}
+                        commentToChange={comment}
+                        singleAlbumId={singleAlbum._id}
+                        commentId={comment._id}
+                        commentText={comment.commentText}
+                      />
                     </div>
                   )}
                 {Auth.loggedIn() &&
                   Auth.getProfile().data.username === comment.commentAuthor && (
                     <div className="text-right">
-                      <a
-                      className=""
-                      onClick={() =>
-                        handleRemoveComment(comment._id, singleAlbum._id)
-                      }
-                      style={{ cursor: "pointer"}}
-                    >
-                       <BsFillTrashFill/>
-                    </a>
+                      <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() =>
+                          handleRemoveComment(comment._id, singleAlbum._id)
+                        }
+                        style={{ cursor: "pointer" }}
+                      >
+                        <BsFillTrashFill/>
+                      </button>
                     </div>
                   )}
-
               </div>
             </div>
           ))}
