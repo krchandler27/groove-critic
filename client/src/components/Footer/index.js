@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import {TbArrowBigUpLinesFilled} from 'react-icons/tb'
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
+
+
     <div class="footer bg-primary">
       <footer >
         <div class=" text-center" >
@@ -40,37 +42,19 @@ const Footer = () => {
                 <ul><a href="https://github.com/kthlnt" target='_blank'>Katherine Lantto</a></ul>
               </ul>
             </div>
+            <div class="col-sm-6 col-md-2 item">
+              <ul>
+                <ul><a href="/" ><TbArrowBigUpLinesFilled size="2em"/></a></ul>
+              </ul>
+            </div>
+            
           </div>
           <p class="text-center">Groove Critic © 2023</p>
         </div>
       </footer>
     </div>
-    // <footer className="w-100 mt-auto bg-secondary p-4" style={{backgroundColor: "#6a6209"}}>
-    //   <div className="container text-center mb-5">
-    //     {location.pathname !== '/' && (
-    //       <a
-    //         className=""
-    //         style={{fontSize:20, color:"#EFBC00", cursor: "pointer"}}
-    //         onClick={() => navigate(-1)}
-    //       >
-    //         Previous Page
-    //       </a>
-    //     )}
-    //     <h4 className='pt-5'>
-    //       {' '}
-    //       <span
-    //         className="emoji"
-    //         role="img"
-    //         aria-label="music"
-    //         aria-hidden="false"
-    //       >
-    //         🎵
-    //       </span>{' '}
-    //       Music Soothes the Savage Beast 👹.
-    //     </h4>
-    //     <a href="#" className=''>Scroll Up</a>
-    //   </div>
-    // </footer>
+
+
   );
 };
 
