@@ -13,7 +13,20 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div className='headerTitle'>
           <Link className="" to="/">
-            <h1 className="m-0 title" style={{}}>Groove Critic</h1>
+            <h1 className="m-0 text-container wrapper title" style={{}}>
+              <span> G </span>
+              <span> R </span>
+              <span> O </span>
+              <span> O </span>
+              <span> V </span>
+              <span> E </span>
+              <span> C </span>
+              <span> R </span>
+              <span> I </span>
+              <span> T </span>
+              <span> I </span>
+              <span> C </span>            
+            </h1>
           </Link>
         </div>
         <div className='nav'>

@@ -29,13 +29,93 @@
   /* outline: blue dashed 1px; */
   background-image: url('./images/records.jpg');
 }
-.headerTitle {
-  /* outline: red dashed 1px; */
-  background-color: #494407;
- padding: 1% 3%;
-  border-radius: 25px;
+
+/* start of edit */
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+.funky {
+  color: #ededed;
+  font-family: 'Bruno Ace', cursive;
+  font-size: 4em;
+  transition: 0.5s all ease;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 
+    /* Color 1 */
+    1px 1px #61b4de, 2px 2px #61b4de, 3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
+    /* Color 2 */
+    6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467, 9px 9px #91c467, 10px 10px #91c467,
+    /* Color 3 */
+    11px 11px #f3a14b, 12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b,
+    /* Color 4 */
+    16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50, 19px 19px #e84c50, 20px 20px #e84c50,
+    /* Color 5 */
+    21px 21px #4e5965, 22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
 }
 
+.headerTitle{
+  width: 400px;
+  height: 220px;
+  position: relative;
+}
+
+.text-container > span {
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    color: #FFF;
+    text-shadow: 0 0 10px #800020, 0 0 50px #800020, 0 0 100px #800020;
+  }
+  
+  10%, 90% {
+    color: rgb(239, 188, 0);
+    text-shadow: none;
+  }
+}
+
+.text-container > span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.text-container > span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.text-container > span:nth-child(4) {
+  animation-delay: 0.48s;
+}
+
+.text-container > span:nth-child(5) {
+  animation-delay: .64s;
+}
+
+.text-container > span:nth-child(6) {
+  animation-delay: .8s;
+}
+
+.text-container > span:nth-child(7) {
+  animation-delay: 1s;
+}
+.text-container > span:nth-child(8) {
+  animation-delay: 1.16s;
+}
+.text-container > span:nth-child(9) {
+  animation-delay: 1.32s;
+}
+.text-container > span:nth-child(10) {
+  animation-delay: 1.48s;
+}
+.text-container > span:nth-child(11) {
+  animation-delay: 1.64s;
+}
+.text-container > span:nth-child(12) {
+  animation-delay: 1.8s;
+}
+
+/* isaac end of edit */
 .zoom {
   width:auto;
   height: auto;
@@ -943,7 +1023,7 @@ a:hover {
   font-size: 5rem;
 }
 .text-md {
-  font-size: 1.5rem;
+  font-size: 4rem;
 }
 .text-primary {
   color: #000000 !important;
