@@ -80,7 +80,12 @@ const CommentList = ({ comments = [], singleAlbum }) => {
                 {Auth.loggedIn() &&
                   Auth.getProfile().data.username === comment.commentAuthor && (
                     <div className="text-right">
-                      <EditComment
+
+                      <button className="btn btn-sm btn-light" style={{cursor: "pointer", marginBottom: "1rem"}}>
+
+                        
+                        
+                        <EditComment
                         key={comment._id}
                         // commentText={commentText}
                         onUpdate={handleUpdate}
@@ -89,6 +94,13 @@ const CommentList = ({ comments = [], singleAlbum }) => {
                         commentId={comment._id}
                         commentText={comment.commentText}
                       />
+                      
+                      
+
+
+
+                      </button>
+
                     </div>
                   )}
                 {Auth.loggedIn() &&

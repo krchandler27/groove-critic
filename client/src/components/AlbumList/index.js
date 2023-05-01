@@ -10,7 +10,7 @@ const AlbumList = ({ albums, title }) => {
 
   return (
     <div>
-      <h2 className="text-primary text-md funky" style={{paddingBottom: "5rem" }}>{title}</h2>
+      <h2 className="text-primary  funky" style={{paddingBottom: "5rem" }}>{title}</h2>
       <div className="flex-row justify-space-between my-4" style={{paddingBottom: "5rem"}}>
         {albums &&
           albums.map((album) => (

@@ -42,9 +42,9 @@ const Login = (props) => {
 
   return (
     <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header text-light  p-2" style={{backgroundColor: "#494407"}}>Login</h4>
+      <div className="col-12 col-lg-10" style={{paddingTop:"2rem"}}>
+        <div className="card" style={{borderRadius: "5px"}}>
+          <h4 className="card-header text-light  p-2" style={{backgroundColor: "#494407", borderRadius: "5px"}}>Login</h4>
           <div className="card-body" >
             {data ? (
               <p>
