@@ -104,28 +104,30 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }, //between here
     updateComment: async (
       parent,
-      { albumId, commentId, commentText },
+      { albumId, commentId, commentText, comments },
       context
     ) => {
       if (context.user) {
-        return Album.findOneAndUpdate(
-          { _id: albumId },
-          {
-            $set: {
-              comments: {
+        const updatedComment = {
                 _id: commentId,
                 commentText: commentText,
                 commentAuthor: context.user.username,
-              },
+        } 
+        console.log(updatedComment)
+        return Album.findOneAndUpdate(
+          { _id: albumId },
+          {
+            $push: {
+              comments: [{...comments}, updatedComment],
             },
           },
           { new: true, runValidators: true }
-        );
-        console.log(albumId);
-      }
+        ); //between here 
+        console.log(albumId, "im here look at me");
+      } 
       throw new AuthenticationError("You need to be logged in!");
     },
   },
