@@ -18,9 +18,9 @@
  Sign up & login to create a profile & write reviews for the album of your choice.
 
  ## Mock Up
-![Alt text](images/landingpage.png)
-![Alt text](images/albumpage.png)
-![Alt text](images/reviewpage.png)
+![Alt text](images/landingpage1.png)
+![Alt text](images/albumpage1.png)
+![Alt text](images/reviewpage1.png)
 
 View a walkthrough video [here](https://drive.google.com/file/d/1NRJJ4qtVIPckrrtJuwr11sfWBg5S2ppP/view)
 
