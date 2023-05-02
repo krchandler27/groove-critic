@@ -84,7 +84,7 @@ rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 @keyframes glow {
   0%, 100% {
-    color: rgb(235, 198, 68);
+    color: yellow;
     text-shadow: 0 0 10px #9c1313, 0 0 50px #9c1313, 0 0 100px #9c1313;
   }
   

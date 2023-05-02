@@ -27,9 +27,9 @@ const AlbumList = ({ albums, title }) => {
                   </Link>
                 ) : null}
                 
-                <h2 className="text-light">
+                <h3 className="text-light funky">
                   {album.title} 
-                </h2>
+                </h3>
                 <h3>{album.artist}</h3>
                 
                 <h5>{album.genre}</h5>
