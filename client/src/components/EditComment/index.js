@@ -57,14 +57,14 @@ const EditComment = ({ singleAlbumId, commentId, commentText, onUpdate }) => {
           <button
             onClick={handleSave}
             className="btn btn-sm btn-primary"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", margin: "1rem" }}
           >
             Save
           </button>
           <button
             onClick={handleCancel}
             className="btn btn-sm btn-primary"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", margin: "1rem" }}
           >
             Cancel
           </button>
@@ -72,7 +72,7 @@ const EditComment = ({ singleAlbumId, commentId, commentText, onUpdate }) => {
       ) : (
         <div>
           <span></span>
-          <button onClick={handleEdit}>
+          <button onClick={handleEdit} className="btn btn-sm btn-light" style={{cursor: "pointer", marginBottom: "1rem"}}>
             <GrEdit />
           </button>
         </div>
