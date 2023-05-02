@@ -58,17 +58,17 @@ rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     /* Color 5 */
     21px 21px #423434, 22px 22px #423434, 23px 23px #423434, 24px 24px #423434, 25px 25px #423434;
 
-    /* more neutral color option */
-           /* Color 1
-       1px 1px #265d79, 2px 2px #265d79, 3px 3px #265d79, 4px 4px #265d79, 5px 5px #265d79,
-       /* Color 2 */
-       /* 6px 6px #6c753a, 7px 7px #6c753a, 8px 8px #6c753a, 9px 9px #6c753a, 10px 10px #6c753a, */
-       /* Color 3 */
-       /* 11px 11px #f3a14b, 12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b, */
-       /* Color 4 */
-       /* 16px 16px #6b2426, 17px 17px #6b2426, 18px 18px #6b2426, 19px 19px #6b2426, 20px 20px #6b2426, */
-       /* Color 5 */
-       /* 21px 21px #2e363d, 22px 22px #2e363d, 23px 23px #2e363d, 24px 24px #2e363d, 25px 25px #2e363d; */
+/* original colors below */
+/*     /* Color 1 */
+/* 1px 1px #61b4de, 2px 2px #61b4de, 3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de, */
+/* Color 2 */
+/* 6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467, 9px 9px #91c467, 10px 10px #91c467, */
+/* Color 3 */
+/* 11px 11px #f3a14b, 12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b, */
+/* Color 4 */
+/* 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50, 19px 19px #e84c50, 20px 20px #e84c50, */
+/* Color 5 */
+/* 21px 21px #4e5965, 22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965; */ 
 }
 
 .headerTitle{
@@ -84,12 +84,12 @@ rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 @keyframes glow {
   0%, 100% {
-    color: #2a7683;
-    text-shadow: 0 0 10px #19454d, 0 0 50px #19454d, 0 0 100px #19454d;
+    color: rgb(235, 198, 68);
+    text-shadow: 0 0 10px #9c1313, 0 0 50px #9c1313, 0 0 100px #9c1313;
   }
   
   10%, 90% {
-    color: #fff8d6;
+    color: rgb(239, 188, 0);
     text-shadow: none;
   }
 }
