@@ -4,18 +4,14 @@
 
   ## Table of Contents
   - [Description](#description)
-  - [Installation](#installation)
   - [Usage](#usage)
+  - [Mock Up](#mock-up)
   - [Contributors](#contributors)
   - [License](#license)
 
   ## Description 
-  Groove Critic is a review-aggregation application focused on music. Users have the ability to create profiles & rate their favorite (or not so well-adored) musical albums. The site is designed for sound snobs, by sound snobs. Jingle junkees unite! 
+  Groove Critic is a review-aggregation application focused on music. Users have the ability to create profiles in order to rate & review their favorite musical albums. The site is designed for sound snobs by sound snobs. Jingle junkees unite! 
   
-
-  ## Installation
-
-
   ## Usage 
  View the deployed site [here](https://groove-critic.herokuapp.com/)
 
@@ -25,6 +21,8 @@
 ![Alt text](images/landingpage.png)
 ![Alt text](images/albumpage.png)
 ![Alt text](images/reviewpage.png)
+
+View a walkthrough video [here](https://drive.google.com/file/d/1NRJJ4qtVIPckrrtJuwr11sfWBg5S2ppP/view)
 
   ## Contributors
 * [Angela Witham](https://github.com/elawilliam) | ela.witham@gmail.com
